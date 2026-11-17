@@ -77,19 +77,7 @@ const libros = sequelize.define("Libros", {
   Activo: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true },
 }, { tableName: "libros", timestamps: false });
 
-const paises = sequelize.define("Paises", {
-  IdPais: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  Nombre: {
-    type: DataTypes.STRING(80),
-    allowNull: false,
-    unique: true,
-    validate: { notEmpty: true, len: [1, 80] },
-  },
-  Capital: { type: DataTypes.STRING(80), allowNull: false, validate: { notEmpty: true, len: [1, 80] } },
-  Continente: { type: DataTypes.STRING(40), allowNull: false, validate: { notEmpty: true, len: [1, 40] } },
-  Poblacion: { type: DataTypes.BIGINT, allowNull: false, validate: { min: 0, isInt: true } },
-  Activo: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true },
-}, { tableName: "paises", timestamps: false });
+
 
 const series = sequelize.define("Series", {
   IdSerie: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
@@ -109,7 +97,6 @@ module.exports = {
   sequelize,
   peliculas,
   libros,
-  paises,
   series,
   users,
   sessions,
